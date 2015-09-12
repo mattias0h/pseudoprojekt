@@ -11,4 +11,14 @@ echo $perenimi;
 
 echo '(' . $vanus . ')';
 
+$isik = array(
+    'eesnimi' => 'Mattias ',
+    'perenimi' => 'Hint ',
+    'vanus' => 25,
+);
+
+echo '<br>';
+
+echo $isik['eesnimi'] . $isik['perenimi'] . '(' . $isik['vanus'] . ')';
+
 ?>
