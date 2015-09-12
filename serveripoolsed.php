@@ -1,9 +1,13 @@
 <?php
 
 $eesnimi = 'Mattias ';
-$perenimi = 'Hint';
+$perenimi = 'Hint ';
+$vanus= 25;
 
 echo $eesnimi;
 
 echo $perenimi;
+
+echo '(' . $vanus . ')';
+
 ?>
