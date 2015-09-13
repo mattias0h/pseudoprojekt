@@ -32,6 +32,10 @@
 
 <button id="btn">Luba parem klõps</button>
 
+<br>
+
+<button id="pilt">Pilt</button>
+
 <script type="text/javascript">
     function myFunction() {
         alert('Tere maailm');
@@ -80,6 +84,9 @@
         $('body').unbind('contextmenu');
     });
 
+    $( "#pilt" ).click(function() {
+        $( "img" ).toggle();
+    });
 
 </script>
 
