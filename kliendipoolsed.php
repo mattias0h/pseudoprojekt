@@ -48,7 +48,7 @@
         $("#myImg").attr("src", "http://cdn.playbuzz.com/cdn/83c1b6fb-2476-4865-938f-ed8a1caee854/495e5e87-ae72-4380-8184-0a38d901e5a6.jpg");
     });
 
-    $(document).ready(function() {
+    /*$(document).ready(function() {
         $("#red").click(function() {
             $("body").css("background-color","red");
         });
@@ -58,6 +58,16 @@
         $("#blue").click(function() {
             $("body").css("background-color","blue");
         });
+    });*/
+
+    $("#red").click(function (event) {
+        $("body").css("background-color",$(this).html());
+    });
+    $("#green").click(function (event) {
+        $("body").css("background-color",$(this).html());
+    });
+    $("#blue").click(function (event) {
+        $("body").css("background-color",$(this).html());
     });
 
 
