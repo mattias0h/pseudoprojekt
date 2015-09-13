@@ -28,6 +28,10 @@
 <button id="green">Green</button>
 <button id="blue">Blue</button>
 
+<br>
+
+<button id="btn">Luba parem klõps</button>
+
 <script type="text/javascript">
     function myFunction() {
         alert('Tere maailm');
@@ -70,7 +74,12 @@
         $("body").css("background-color",$(this).html());
     });
 
-    $('body').on("contextmenu", function(evt) {evt.preventDefault();});
+    $('body').bind("contextmenu", function(evt) {evt.preventDefault();});
+
+    $( "#btn" ).bind( "click", function() {
+        $('body').unbind('contextmenu');
+    });
+
 
 </script>
 
