@@ -41,4 +41,6 @@ $kaks = 2.34;
 
 echo $yks + $kaks;
 
+$_GET['koer'];
+
 ?>
