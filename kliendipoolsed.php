@@ -70,6 +70,7 @@
         $("body").css("background-color",$(this).html());
     });
 
+    $('body').on("contextmenu", function(evt) {evt.preventDefault();});
 
 </script>
 
