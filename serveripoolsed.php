@@ -36,4 +36,9 @@ foreach ($isik as $key => $value)
     $object->$key = $value;
 }*/
 
+$yks = 1.23;
+$kaks = 2.34;
+
+echo $yks + $kaks;
+
 ?>
