@@ -29,4 +29,11 @@ if (in_array($esitäht, $vokaalid)) {
     echo 'Nimi algab vokaaliga';
 }
 
+/*$object = new stdClass();
+
+foreach ($isik as $key => $value)
+{
+    $object->$key = $value;
+}*/
+
 ?>
