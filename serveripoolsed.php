@@ -21,4 +21,12 @@ echo '<br>';
 
 echo $isik['eesnimi'] . $isik['perenimi'] . '(' . $isik['vanus'] . ')';
 
+echo '<br>';
+
+$esitäht = substr($eesnimi, 0, 1);
+$vokaalid = array('A', 'E', 'I', 'O', 'U', 'Õ', 'Ä', 'Ö', 'Ü');
+if (in_array($esitäht, $vokaalid)) {
+    echo 'Nimi algab vokaaliga';
+}
+
 ?>
