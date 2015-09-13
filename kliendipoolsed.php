@@ -8,10 +8,23 @@
 
 <button onclick="myFunction()">Tere maailm</button>
 
-<script>
+<br>
+
+<a href="javascript:AlertIt();">Tere maailm</a>
+
+<script type="text/javascript">
     function myFunction() {
         alert('Tere maailm');
     }
+
+    function AlertIt() {
+        var answer = confirm ("Tere maailm");
+        if (answer)
+            window.location="http://www.khk.ee";
+    }
+
+
+
 </script>
 
 </body>
