@@ -22,6 +22,12 @@
 
 <img src="http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg" alt="" onclick="changeSource()" id="myImg">
 
+<br>
+
+<button id="red">Red</button>
+<button id="green">Green</button>
+<button id="blue">Blue</button>
+
 <script type="text/javascript">
     function myFunction() {
         alert('Tere maailm');
@@ -40,6 +46,18 @@
 
     $('#myImg').click(function() {
         $("#myImg").attr("src", "http://cdn.playbuzz.com/cdn/83c1b6fb-2476-4865-938f-ed8a1caee854/495e5e87-ae72-4380-8184-0a38d901e5a6.jpg");
+    });
+
+    $(document).ready(function() {
+        $("#red").click(function() {
+            $("body").css("background-color","red");
+        });
+        $("#green").click(function() {
+            $("body").css("background-color","green");
+        });
+        $("#blue").click(function() {
+            $("body").css("background-color","blue");
+        });
     });
 
 
