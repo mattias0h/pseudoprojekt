@@ -1,3 +1,8 @@
+<?php
+
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+?>
 <!doctype html>
 <html lang="et">
 <head>
@@ -7,9 +12,7 @@
 <body>
 <?php
 
-if (isset($_GET['page'])){
-    require $_GET['page'] . '.php';
-}
+require $page . '.php';
 
 ?>
 </body>
