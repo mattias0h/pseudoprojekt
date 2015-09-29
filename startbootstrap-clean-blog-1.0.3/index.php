@@ -1,6 +1,14 @@
 <?php
 
-$posts = array('title' => 'Man must explore, and this is exploration at its greatest', 'subtitle' => 'Problems look mighty small from 150 miles up', 'author' => 'Start Bootstrap', 'date' => 'September 24, 2014');
+$posts[] = array('title' => 'Man must explore, and this is exploration at its greatest',
+    'subtitle' => 'Problems look mighty small from 150 miles up',
+    'author' => 'Start Bootstrap',
+    'date' => 'September 24, 2014');
+
+$posts[]= array('title' => 'Stars and stones',
+    'subtitle' => 'Thats so funny',
+    'author' => 'Start Bootstrap',
+    'date' => 'September 24, 2014');
 
 ?>
 
@@ -93,18 +101,19 @@ $posts = array('title' => 'Man must explore, and this is exploration at its grea
 
     <!-- Main Content -->
     <div class="container">
+        <?php foreach($posts as $post):?>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
-                            <?php echo $posts['title']?>
+                            <?=$post['title']?>
                         </h2>
-                        <h3 class="post-subtitle">
-                            <?php echo $posts['subtitle']?>
+                        <h3 class='post-subtitle'>
+                            <?=$post["description"]?>
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#"><?php echo $posts['author']?></a> on <?php echo $posts['date']?></p>
+                    <p class="post-meta">Posted by <a href="#"><?=$post['name']?></a> on <?=$post['date']?></p>
                 </div>
                 <hr>
                 <!-- Pager -->
@@ -115,6 +124,7 @@ $posts = array('title' => 'Man must explore, and this is exploration at its grea
                 </ul>
             </div>
         </div>
+        <?php endforeach?>
     </div>
 
     <hr>
