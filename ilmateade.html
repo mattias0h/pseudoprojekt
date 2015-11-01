@@ -7,20 +7,18 @@
 </head>
 <body>
 
-<input type="text" id="city"><input type="submit" id="nupp">
+<input type="text" id="city" placeholder="Linna nimi"><input type="submit" id="nupp" value="Uuri ilma">
 
-<button id = "getIt" onclick = "gettingJSON()">Get JSON</button>
-<div id="summary"></div>
+<h1 style="color:green;"></h1>
 
 <script>
 
-    function gettingJSON(){
-        document.write("jquery loaded");
-        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=172357f59bbb8abbd07137b2f58e0baf", function(data){
-            console.log(data.weather);
-        });
-    }
-
+        $("#nupp").click(function() {
+            var value = $("#city").val();
+            $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + value + "&APPID=172357f59bbb8abbd07137b2f58e0baf", function(data){
+                $("h1").text(data.weather[0]['description']);
+            });
+        })
 
 </script>
 
