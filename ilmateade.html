@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="text" id="city"><input type="submit" id="nupp">
+
+<button id = "getIt" onclick = "gettingJSON()">Get JSON</button>
+<div id="summary"></div>
+
+<script>
+
+    function gettingJSON(){
+        document.write("jquery loaded");
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=172357f59bbb8abbd07137b2f58e0baf", function(data){
+            alert(JSON.stringify(data));
+        });
+    }
+
+
+</script>
+
+</body>
+</html>
