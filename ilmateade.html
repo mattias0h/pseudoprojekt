@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="chosen/chosen.jquery.js"></script>
+    <link rel="stylesheet" href="chosen/chosen.css">
 </head>
 <body>
 
-<select style="width: 250px;" name="dropdown" id="linndrop">
+<select style="width: 250px;" name="dropdown" id="linndrop" class="chosen-select">
     <option selected="selected"></option>
 </select>
 
@@ -53,6 +55,11 @@
                 $("h2").text(data.weather[0]['description']);
             });
         }
+
+        $(".chosen-select").chosen({
+            no_results_text: "Vastet ei leitud!",
+            width: "25%"
+        });                                             //chosen'i külge pannes ei laadi enam andmeid...
 
 </script>
 
