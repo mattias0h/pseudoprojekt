@@ -7,9 +7,19 @@
 </head>
 <body>
 
+<select style="width: 250px;" name="dropdown" id="linndrop">
+    <option selected="selected"></option>
+</select>
+
+<button onclick="JavaScript:ilmateade()">Uuri Ilma</button>
+
+<br>
+<br>
+
 <input type="text" id="city" placeholder="Linna nimi"><input type="submit" id="nupp" value="Uuri ilma">
 
 <h1 style="color:green;"></h1>
+<h2 style="color:blue;"></h2>
 
 <script>
 
@@ -19,6 +29,30 @@
                 $("h1").text(data.weather[0]['description']);
             });
         })
+
+        $.get("http://cors.io/?u=http://openweathermap.org/help/city_list.txt", function(data) {
+            var lines = data.split("\n");
+            var result = [];
+            var headers = lines[0].split("\t");
+            for (var i = 1; i < lines.length - 1; i++) {
+                var obj = {};
+                var currentline = lines[i].split("\t");
+                obj[headers[1]] = currentline[1];
+                result.push(obj);
+            }
+            $.each(result, function (index, item) {
+                $('#linndrop').append(
+                        $('<option></option>').val(item["nm"]).text(item["nm"])
+                );
+            });
+        });
+
+        function ilmateade() {
+            var value = $("#linndrop").val();
+            $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + value + "&APPID=172357f59bbb8abbd07137b2f58e0baf", function(data){
+                $("h2").text(data.weather[0]['description']);
+            });
+        }
 
 </script>
 
