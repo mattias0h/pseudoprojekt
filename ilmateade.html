@@ -59,7 +59,7 @@
                     result.push(obj);
                 }
             }
-            console.log(result);
+
             $.each(result, function (index, item) {
                 $('#linndrop').append(
                         $('<option></option>').val(item["nm"]).text(item["nm"])
@@ -70,6 +70,13 @@
                     $('#ilmateade').append('<tr><td>'+ data.name.toString() +'</td><td>'+data.weather[0].description.toString().toLocaleLowerCase()+'</td></tr>');
                 });
             }
+
+            localStorage.setItem('linnad', JSON.stringify(result));
+
+            var linnad = JSON.parse(localStorage.getItem('linnad'));
+
+            console.log(linnad);
+
         });
 
         function ilmateade() {
@@ -83,7 +90,6 @@
             no_results_text: "Vastet ei leitud!",
             width: "25%"
         });   */                                          //chosen'i külge pannes ei laadi enam andmeid...
-
 
 
 </script>
