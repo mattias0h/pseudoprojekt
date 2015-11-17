@@ -6,6 +6,13 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="chosen/chosen.jquery.js"></script>
     <link rel="stylesheet" href="chosen/chosen.css">
+
+    <style>
+        table, td {
+            border: solid black;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -23,9 +30,14 @@
 <h1 style="color:green;"></h1>
 <h2 style="color:blue;"></h2>
 
+<br>
+<br>
+
+<table id="ilmateade"></table>
+
 <script>
 
-        $("#nupp").click(function() {
+       $("#nupp").click(function() {
             var value = $("#city").val();
             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + value + "&APPID=172357f59bbb8abbd07137b2f58e0baf", function(data){
                 $("h1").text(data.weather[0]['description']);
@@ -34,19 +46,30 @@
 
         $.get("http://cors.io/?u=http://openweathermap.org/help/city_list.txt", function(data) {
             var lines = data.split("\n");
-            var result = [];
+            result = [];
             var headers = lines[0].split("\t");
             for (var i = 1; i < lines.length - 1; i++) {
                 var obj = {};
                 var currentline = lines[i].split("\t");
-                obj[headers[1]] = currentline[1];
-                result.push(obj);
+                for (var j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+
+                if (obj.countryCode == "EE") {
+                    result.push(obj);
+                }
             }
+            console.log(result);
             $.each(result, function (index, item) {
                 $('#linndrop').append(
                         $('<option></option>').val(item["nm"]).text(item["nm"])
                 );
             });
+            for(var i=0; i< result.length;i++){
+                $.get("http://api.openweathermap.org/data/2.5/weather?q=" + result[i].nm + "&APPID=172357f59bbb8abbd07137b2f58e0baf", function (data) {
+                    $('#ilmateade').append('<tr><td>'+ data.name.toString() +'</td><td>'+data.weather[0].description.toString().toLocaleLowerCase()+'</td></tr>');
+                });
+            }
         });
 
         function ilmateade() {
@@ -56,10 +79,12 @@
             });
         }
 
-        $(".chosen-select").chosen({
+        /*$(".chosen-select").chosen({
             no_results_text: "Vastet ei leitud!",
             width: "25%"
-        });                                             //chosen'i külge pannes ei laadi enam andmeid...
+        });   */                                          //chosen'i külge pannes ei laadi enam andmeid...
+
+
 
 </script>
 
